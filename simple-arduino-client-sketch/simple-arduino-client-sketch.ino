@@ -8,7 +8,7 @@ const int RED_LED_PIN = 7;
 String temp;
 boolean sendTemp = false;
 
-byte deepstreamHost[] = { 192,168,0,201 };
+byte deepstreamHost[] = { 192,168,0,13 };
 int deepstreamPort = 6021;
 
 byte mac[] = { 0x98, 0xD6, 0xF7, 0x5B, 0xA0, 0xD1 };
@@ -65,7 +65,17 @@ void setup()
   Serial.begin(9600);
 
   log( "Getting IP..." );
+
+  delay(2000);
+  
+  //Each shield has a different IP, you can find them on a sticker
+  //on new ones on the back
   Ethernet.begin( mac );
+
+  delay(2000);
+  
+  //Print the IP you got. If it is 0.0.0.0 it means you didn't
+  //get an IP assigned and you would need to reset your board
   log( Ethernet.localIP() );
 
   delay(2000);

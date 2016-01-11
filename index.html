@@ -159,7 +159,7 @@
 			loggedIn && ds.event.emit( 'led-red', $('.cube-switch').hasClass('active') );
 		});
 
-		var ds = deepstream( 'localhost:6020' ).login( {}, function() {
+		var ds = deepstream( '192.168.0.201:6020' ).login( {}, function() {
 			//Subscribe to temperature changes
 			ds.event.subscribe( 'temperature', function( value ) {
 				 $('.temperature-value' ).html( value + ' &#8451;' );
